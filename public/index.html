@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2, h3 {
+      text-align: center;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    #products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      width: calc(33% - 20px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .card-title {
+      font-size: 1.25em;
+      margin: 10px 0;
+    }
+    .card-text {
+      color: #555;
+    }
+    .btn-primary {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .btn-primary:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Our E-Commerce Store</h1>
+
+    <div id="auth-section" class="my-4">
+      <h2>User Authentication</h2>
+      <div>
+        <h3>Register</h3>
+        <input id="register-username" type="text" placeholder="Username" class="form-control">
+        <input id="register-password" type="password" placeholder="Password" class="form-control">
+        <button onclick="registerUser()" class="btn">Register</button>
+      </div>
+
+      <div class="mt-4">
+        <h3>Login</h3>
+        <input id="login-username" type="text" placeholder="Username" class="form-control">
+        <input id="login-password" type="password" placeholder="Password" class="form-control">
+        <button onclick="loginUser()" class="btn">Login</button>
+      </div>
+    </div>
+
+    <h2>Available Products</h2>
+    <div id="products" class="my-4"></div>
+  </div>
+
+  <script>
+    async function fetchProducts() {
+      const response = await fetch('/api/products');
+      const products = await response.json();
+      const productsContainer = document.getElementById('products');
+      productsContainer.innerHTML = '';
+
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'card';
+        productCard.innerHTML = `
+          <h5 class="card-title">${product.name}</h5>
+          <p class="card-text">Price: $${(product.price / 100).toFixed(2)}</p>
+          <button class="btn-primary" onclick="checkout(${product.id})">Buy Now</button>
+        `;
+        productsContainer.appendChild(productCard);
+      });
+    }
+
+    async function registerUser() {
+      const username = document.getElementById('register-username').value;
+      const password = document.getElementById('register-password').value;
+
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const result = await response.json();
+      alert(result.message || result.error);
+    }
+
+    async function loginUser() {
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const result = await response.json();
+      alert(result.message || result.error);
+    }
+
+    async function checkout(productId) {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId })
+      });
+
+      const result = await response.json();
+      if (result.url) {
+        window.location = result.url;
+      } else {
+        alert(result.error);
+      }
+    }
+
+    // Initialize the product list
+    fetchProducts();
+  </script>
+</body>
+</html>
