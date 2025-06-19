@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Product A", "price": 5000 },
+  { "id": 2, "name": "Product B", "price": 3000 },
+  { "id": 3, "name": "Product C", "price": 10000 },
+  { "id": 4, "name":"5x7", "price": 1000,  "img_url":"/some/url","quantity":5}
+]

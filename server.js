@@ -4,7 +4,8 @@ const dotenv = require('dotenv');
 const stripe = require('stripe');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-
+const products = require('./products.json');
+const path = require('path');
 // Load environment variables from .env file
 dotenv.config();
 
@@ -23,48 +24,42 @@ app.use(session({
 
 // In-memory user database (for demonstration purposes)
 const users = [];
+// Serve static files for a basic frontend
+app.use(express.static('public'));
+// // User registration
+// app.post('/api/register', async (req, res) => {
+//   const { username, password } = req.body;
+//   if (users.find(user => user.username === username)) {
+//     return res.status(400).json({ error: 'User already exists' });
+//   }
+//   const hashedPassword = await bcrypt.hash(password, 10);
+//   users.push({ username, password: hashedPassword, tokens: 0 });
+//   res.status(201).json({ message: 'User registered successfully' });
+// });
 
-// Sample products for the store
-const products = [
-  { id: 1, name: 'Product A', price: 5000 }, // price in cents
-  { id: 2, name: 'Product B', price: 3000 },
-  { id: 3, name: 'Product C', price: 10000 },
-];
-
-// User registration
-app.post('/api/register', async (req, res) => {
-  const { username, password } = req.body;
-  if (users.find(user => user.username === username)) {
-    return res.status(400).json({ error: 'User already exists' });
-  }
-  const hashedPassword = await bcrypt.hash(password, 10);
-  users.push({ username, password: hashedPassword, tokens: 0 });
-  res.status(201).json({ message: 'User registered successfully' });
-});
-
-// User login
-app.post('/api/login', async (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(user => user.username === username);
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    return res.status(401).json({ error: 'Invalid credentials' });
-  }
-  req.session.user = { username, tokens: user.tokens };
-  res.json({ message: 'Login successful' });
-});
+// // User login
+// app.post('/api/login', async (req, res) => {
+//   const { username, password } = req.body;
+//   const user = users.find(user => user.username === username);
+//   if (!user || !(await bcrypt.compare(password, user.password))) {
+//     return res.status(401).json({ error: 'Invalid credentials' });
+//   }
+//   req.session.user = { username, tokens: user.tokens };
+//   res.json({ message: 'Login successful' });
+// });
 
 // Award digital tokens to the user
-app.post('/api/award-tokens', (req, res) => {
-  if (!req.session.user) return res.status(401).json({ error: 'Unauthorized' });
-  const { tokens } = req.body;
-  const user = users.find(user => user.username === req.session.user.username);
-  if (!user) {
-    return res.status(404).json({ error: 'User not found' });
-  }
-  user.tokens += tokens;
-  req.session.user.tokens = user.tokens;
-  res.json({ message: 'Tokens awarded', totalTokens: user.tokens });
-});
+// app.post('/api/award-tokens', (req, res) => {
+//   if (!req.session.user) return res.status(401).json({ error: 'Unauthorized' });
+//   const { tokens } = req.body;
+//   const user = users.find(user => user.username === req.session.user.username);
+//   if (!user) {
+//     return res.status(404).json({ error: 'User not found' });
+//   }
+//   user.tokens += tokens;
+//   req.session.user.tokens = user.tokens;
+//   res.json({ message: 'Tokens awarded', totalTokens: user.tokens });
+// });
 
 // Get user profile
 app.get('/api/profile', (req, res) => {
@@ -76,6 +71,9 @@ app.get('/api/profile', (req, res) => {
 
 // Endpoint to get product list
 app.get('/api/products', (req, res) => {
+  //do pagination if products greater than 100.
+  //default to showing 50 products per page.
+
   res.json(products);
 });
 
@@ -115,8 +113,15 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// Serve static files for a basic frontend
-app.use(express.static('public'));
+
+app.get('/contact', (req, res) => {
+  console.log(path.join(__dirname, 'public/contact.html'));
+  res.sendFile(path.join(__dirname, 'public/contact.html'));
+});
+
+app.get('/catalog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/catalog.html'));
+});
 
 // Start the server
 app.listen(port, () => {
