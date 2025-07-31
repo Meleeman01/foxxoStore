@@ -1,4 +1,30 @@
 /*a basic flex-box library*/
+@font-face {
+  font-family: 'Dokdo';
+  src: local(''),
+    url('fonts/Dokdo-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Barriecito';
+  src: local(''),
+    url('fonts/Barriecito-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'KirangHaerang';
+  src: local(''),
+    url('fonts/KirangHaerang-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lacquer';
+  src: local(''),
+    url('fonts/Lacquer-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PermanentMarker';
+  src: local(''),
+    url('fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
 :root {
   --ez-dark-theme:0;
   --primary: #6a4c94;
@@ -9,7 +35,7 @@
   --info: #1981c2;
   --black: #1f1300;
   --white: #fffaff;
-  --main-title:"Arial";
+  --main-title:"Dokdo";
   --sub-titles:"Montserrat";
   --paragraphs:"Montserrat";
   --title-size:5rem;
@@ -94,6 +120,16 @@ button[disabled], input[disabled] {
 
 .link:visited {
   color: var(--info);
+}
+
+a {
+  color: blue;
+}
+
+.outlined-text {
+  color: black; /* text color */
+  -webkit-text-stroke: 1px white; /* stroke width and color */
+  text-stroke: 1px white; /* fallback */
 }
 
 /*color lightened by 5%*/
@@ -407,6 +443,7 @@ ul {
 .is-round {
   border-radius: var(--button-roundness);
 }
+
 
 .mt-1 {
   margin-top: var(--mp-1-setting);
