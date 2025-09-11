@@ -77,6 +77,19 @@ app.get('/api/products', (req, res) => {
   res.json(products);
 });
 
+app.get("/product", (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/product.html'));
+});
+
+// serve JSON for the product
+app.get("/api/product/:id", (req, res) => {
+  const productId = req.params.id;
+  console.log(req.params.id)
+  const product = products.find((i) => i.id == productId)
+  console.log(product)
+  res.json(product);
+});
+
 // Endpoint to create a Stripe Checkout session
 app.post('/api/create-checkout-session', async (req, res) => {
   const { productId } = req.body;

@@ -188,45 +188,54 @@
       const productsContainer = document.getElementById('products');
       productsContainer.innerHTML = '';
 
-      products.forEach(product => {
+      products.forEach( product => {
         const productCard = document.createElement('div');
-        productCard.className = 'card';
+        productCard.className = 'card clickable';
+
+        productCard.addEventListener('click', (event) => {
+          if (event.target.classList.contains('clickable')) {
+            console.log('child clicked',event.target);
+            window.location = `${window.origin}/product?id=${product.id}`
+          }
+          event.stopPropagation();
+          
+        });
         productCard.innerHTML = `
-          <h5 class="card-title">${product.name}</h5>
-          <p class="card-text">Price: $${(product.price / 100).toFixed(2)}</p>
+          <h5 class="card-title clickable">${product.name}</h5>
+          <p class="card-text clickable">Price: $${(product.price / 100).toFixed(2)}</p>
           <button class="btn-primary" onclick="checkout(${product.id})">Buy Now</button>
         `;
         productsContainer.appendChild(productCard);
       });
     }
 
-    async function registerUser() {
-      const username = document.getElementById('register-username').value;
-      const password = document.getElementById('register-password').value;
+    // async function registerUser() {
+    //   const username = document.getElementById('register-username').value;
+    //   const password = document.getElementById('register-password').value;
 
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+    //   const response = await fetch('/api/register', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ username, password })
+    //   });
 
-      const result = await response.json();
-      alert(result.message || result.error);
-    }
+    //   const result = await response.json();
+    //   alert(result.message || result.error);
+    // }
 
-    async function loginUser() {
-      const username = document.getElementById('login-username').value;
-      const password = document.getElementById('login-password').value;
+    // async function loginUser() {
+    //   const username = document.getElementById('login-username').value;
+    //   const password = document.getElementById('login-password').value;
 
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+    //   const response = await fetch('/api/login', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ username, password })
+    //   });
 
-      const result = await response.json();
-      alert(result.message || result.error);
-    }
+    //   const result = await response.json();
+    //   alert(result.message || result.error);
+    // }
 
     async function checkout(productId) {
       const response = await fetch('/api/create-checkout-session', {
