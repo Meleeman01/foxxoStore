@@ -1,0 +1,85 @@
+    <!--Footer-->
+    <figure class="flx center middle">
+      <img style="max-width: 500px; min-width: 0;" src="siteImages/sarawr.png"/>
+    </figure>
+    <footer class="flx(column) center middle" style="padding: 0;
+  background-color: #6A78FF5E;
+  border-radius: 0 0 8px 8px; width: 100%;"> 
+      <span class="mt-2 mb-1">Made with love ♥️ by Meleeman 🦊 </span>
+      <span class=" mb-2">Sarawrr &copy; <span id="date"></span></span>
+    </footer>
+  </div>
+
+  
+  <script>
+    //global js and widgets go here. 
+    document.getElementById('date').innerHTML = new Date().getFullYear();
+    //make sure the paths are correct
+    document.querySelectorAll('.link').forEach((link)=>{
+      console.log(window.origin)
+      link.href = `${window.origin}${link.pathname}`
+     // console.log(link.pathname)
+    })
+    // Utility to get and save cart in localStorage
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart") || "[]");
+    }
+    function saveCart(cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Add item
+    function addToCart(id, qty = 1) {
+      const cart = getCart();
+      const existing = cart.find(item => item.id === id);
+      if (existing) existing.qty += qty;
+      else cart.push({ id, qty });
+      saveCart(cart);
+      alert("Added to cart!");
+    }
+    // Checkout
+    async function checkout() {
+      const cart = getCart();
+      const res = await fetch("http://localhost:3000/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cart }),
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url; // Redirect to Stripe
+      } else {
+        alert("Checkout failed: " + data.error);
+      }
+    }
+  
+    // sliderCode
+    const slides = document.querySelector('.slides');
+    const slideCount = document.querySelectorAll('.slide').length;
+    const prevBtn = document.querySelector('.arrow.left');
+    const nextBtn = document.querySelector('.arrow.right');
+
+    let currentIndex = 0;
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    //document.querySelector('')
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+      updateSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      updateSlide();
+    });
+
+     setInterval(() => {
+    nextBtn.click();
+      }, 3000);
+  </script>
+</body>
+</html>

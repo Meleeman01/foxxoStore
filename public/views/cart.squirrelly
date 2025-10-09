@@ -1,0 +1,6 @@
+{{@includeFile('header.squirrelly') /}}
+	<!--view cart here-->
+	<h1>Your Cart</h1>
+	
+
+{{@includeFile('footer.squirrelly') /}}

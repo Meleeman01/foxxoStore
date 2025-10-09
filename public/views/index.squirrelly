@@ -1,0 +1,29 @@
+{{@includeFile('header.squirrelly') /}}
+<!--nav here above should be a header-->
+    
+    
+    <!-- <div id="auth-section" class="my-4">
+      <h2>User Authentication</h2>
+      <div>
+        <h3>Register</h3>
+        <input id="register-username" type="text" placeholder="Username" class="form-control">
+        <input id="register-password" type="password" placeholder="Password" class="form-control">
+        <button onclick="registerUser()" class="btn">Register</button>
+      </div>
+
+      <div class="mt-4">
+        <h3>Login</h3>
+        <input id="login-username" type="text" placeholder="Username" class="form-control">
+        <input id="login-password" type="password" placeholder="Password" class="form-control">
+        <button onclick="loginUser()" class="btn">Login</button>
+      </div>
+    </div> -->
+
+    <h2 style="font-weight: lighter; letter-spacing: 10px;">
+      Available Products
+    </h2>
+
+    <div id="products" class="mt-4 flx(wrap) space-evenly middle"></div>
+    <script src="js/products.js"></script>
+{{@includeFile('footer.squirrelly') /}}
+

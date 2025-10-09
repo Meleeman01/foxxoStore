@@ -1,0 +1,4 @@
+{{@includeFile('header.squirrelly') /}}
+
+<h1>lol lmao</h1>
+{{@includeFile('footer.squirrelly') /}}

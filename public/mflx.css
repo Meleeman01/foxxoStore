@@ -63,7 +63,9 @@
 ::-moz-focus-inner {
   border: 0;
 }
-
+/*html,body {
+  overflow-x: hidden;
+}*/
 h1 {
   font-family: var(--main-title), "sans-serif";
   font-size: var(--title-size);
@@ -115,11 +117,12 @@ button[disabled], input[disabled] {
 
 .link:link {
   text-decoration: none;
-  color: var(--info);
+  color: var(--white);
 }
 
 .link:visited {
-  color: var(--info);
+  color: var(--white);
+ 
 }
 
 a {
@@ -127,15 +130,15 @@ a {
 }
 
 .outlined-text {
-  color: black; /* text color */
-  -webkit-text-stroke: 1px white; /* stroke width and color */
+  color: #32387382; /* text color */
+  -webkit-text-stroke: 2px white; /* stroke width and color */
   text-stroke: 1px white; /* fallback */
 }
 
 /*color lightened by 5%*/
 .link:hover, .link:focus {
   border: 0;
-  color: #1c90d9;
+  color: lavender;
 }
 
 ul {
@@ -603,4 +606,56 @@ ul {
 
 .pt-5 {
   padding-top: var(--mp-5-setting);
+}
+
+.carousel {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 0px 0px 10px 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      height: 100%;
+
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+/*mobile styles*/
+@media (max-width: 600px) {
+  .card {
+    width: 100%; /* stack cards on small screens */
+  }
 }

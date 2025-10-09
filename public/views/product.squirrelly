@@ -1,0 +1,13 @@
+{{@includeFile('header.squirrelly') /}}
+	<style>
+		.product-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	</style>
+
+	<div class="product-container flx(wrap) space-evenly middle">
+		
+	</div>
+	<script src="js/product.js"></script>
+{{@includeFile('footer.squirrelly') /}}

@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Blue Hacker Fox 5x7\"", "img_url":"/productImages/bluefoxxo.jpg", "price": 5000 },
+  { "id": 2, "name": "Cat Bird Girl", "img_url":"/productImages/birdgirl.jpg", "price": 3000 },
+  { "id": 3, "name": "Product C", "price": 10000 },
+  { "id": 4, "name":"5x7", "price": 1000,  "quantity":5}
+]
