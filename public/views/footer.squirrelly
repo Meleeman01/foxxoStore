@@ -20,39 +20,7 @@
       link.href = `${window.origin}${link.pathname}`
      // console.log(link.pathname)
     })
-    // Utility to get and save cart in localStorage
-    function getCart() {
-      return JSON.parse(localStorage.getItem("cart") || "[]");
-    }
-    function saveCart(cart) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-
-    // Add item
-    function addToCart(id, qty = 1) {
-      const cart = getCart();
-      const existing = cart.find(item => item.id === id);
-      if (existing) existing.qty += qty;
-      else cart.push({ id, qty });
-      saveCart(cart);
-      alert("Added to cart!");
-    }
-    // Checkout
-    async function checkout() {
-      const cart = getCart();
-      const res = await fetch("http://localhost:3000/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart }),
-      });
-
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url; // Redirect to Stripe
-      } else {
-        alert("Checkout failed: " + data.error);
-      }
-    }
+    
   
     // sliderCode
     const slides = document.querySelector('.slides');
@@ -78,8 +46,13 @@
     });
 
      setInterval(() => {
-    nextBtn.click();
+        nextBtn.click();
       }, 3000);
+
+     console.log(window.location.pathname);
+     
+     
   </script>
+  <script src="/js/cart.js"></script>
 </body>
 </html>

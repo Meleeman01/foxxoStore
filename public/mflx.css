@@ -24,6 +24,16 @@
   src: local(''),
     url('fonts/PermanentMarker-Regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Roboto';
+  src: local(''),
+    url('fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: local(''),
+    url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
 
 :root {
   --ez-dark-theme:0;

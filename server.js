@@ -183,6 +183,62 @@ app.get("/api/product/:id", (req, res) => {
 //   }
 // });
 
+// Checkout endpoint
+app.post("/create-checkout-session", async (req, res) => {
+  try {
+    const { cart } = req.body;
+
+    // Validate the cart
+    const line_items = cart.map(item => {
+      console.log(item)
+      const product = products[item.id - 1];
+      console.log(product)
+      if (!product) throw new Error("Invalid product: " + item.id);
+
+      return {
+        price_data: {
+          currency: "usd",
+          product_data: { name: product.name },
+          unit_amount: product.price,
+        },
+        quantity: item.qty,
+      };
+    });
+
+    // Create Stripe checkout session
+    const session = await stripeInstance.checkout.sessions.create({
+      mode: "payment",
+      line_items,
+      // ✅ Collect addresses
+      billing_address_collection: "required",
+      shipping_address_collection: {
+        allowed_countries: ["US", "CA", "GB", "AU"], // customize as needed
+      },
+
+      // Optional shipping rates (flat rate example)
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            display_name: "Free Shipping",
+            type: "fixed_amount",
+            fixed_amount: { amount: 0, currency: "usd" },
+            delivery_estimate: {
+              minimum: { unit: "business_day", value: 5 },
+              maximum: { unit: "business_day", value: 10 },
+            },
+          },
+        },
+      ],
+      success_url: "http://localhost:5173/success",
+      cancel_url: "http://localhost:5173/cancel",
+    });
+
+    res.json({ url: session.url });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error.message });
+  }
+});
 
 app.get('/contact', (req, res) => {
   res.render('contact');
