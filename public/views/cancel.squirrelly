@@ -1,0 +1,6 @@
+{{@includeFile('header.squirrelly') /}}
+<h1>Transaction Cancelled</h1>
+<script>
+  setTimeout(() => window.location = "/", 3000);
+</script>
+{{@includeFile('footer.squirrelly') /}}

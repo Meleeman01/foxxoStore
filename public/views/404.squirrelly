@@ -1,0 +1,4 @@
+{{@includeFile('header.squirrelly') /}}
+
+<h1>404 Not Found.</h1>
+{{@includeFile('footer.squirrelly') /}}

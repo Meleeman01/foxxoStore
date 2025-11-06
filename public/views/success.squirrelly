@@ -1,0 +1,7 @@
+{{@includeFile('header.squirrelly') /}}
+	
+<h1>Thanks For your Purchase!</h1>
+<script>
+  setTimeout(() => window.location = "/", 3000);
+</script>
+{{@includeFile('footer.squirrelly') /}}
