@@ -229,8 +229,9 @@ app.post("/create-checkout-session", async (req, res) => {
           },
         },
       ],
-      success_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cancel",
+      //this will need to be put into an .env
+      success_url: "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/cancel",
     });
 
     res.json({ url: session.url });
@@ -238,6 +239,14 @@ app.post("/create-checkout-session", async (req, res) => {
     console.error(error);
     res.status(400).json({ error: error.message });
   }
+});
+
+app.get('/success', (req,res) => {
+  res.render('success');
+});
+
+app.get('/cancel', (req,res) => {
+  res.render('cancel');
 });
 
 app.get('/contact', (req, res) => {
@@ -251,7 +260,9 @@ app.get('/catalog', (req, res) => {
 app.get('/cart',(req,res) => {
   res.render('cart')
 });
-
+app.use( ( req, res, next ) => {
+  res.status( 404 ).render("404");
+});
 // Start the server
 app.listen(port, () => {
   console.log(`E-commerce app listehow to check npm global packagesning at http://localhost:${port}`);
