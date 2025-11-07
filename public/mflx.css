@@ -669,3 +669,10 @@ ul {
     width: 100%; /* stack cards on small screens */
   }
 }
+
+
+@media (max-width: 1900px) {
+  .container {
+    max-width: 1200px;
+  }
+}

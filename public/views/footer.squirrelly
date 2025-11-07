@@ -1,6 +1,6 @@
     <!--Footer-->
     <figure class="flx center middle">
-      <img style="max-width: 500px; min-width: 0;" src="siteImages/sarawr.png"/>
+      <img style="max-width: 125px; min-width: 0;" src="siteImages/sarawr.png"/>
     </figure>
     <footer class="flx(column) center middle" style="padding: 0;
   background-color: #6A78FF5E;

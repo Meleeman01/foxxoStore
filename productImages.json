@@ -1,6 +1,24 @@
 [
-  { "id": 1, "name": "Blue Hacker Fox 5x7\"", "img_url":"/productImages/bluefoxxo.jpg", "price": 5000 },
-  { "id": 2, "name": "Cat Bird Girl", "img_url":"/productImages/birdgirl.jpg", "price": 3000 },
-  { "id": 3, "name": "Product C", "price": 10000 },
-  { "id": 4, "name":"5x7", "price": 1000,  "quantity":5}
+  { "id": 1, "category":"test", "name":"test 5x7", "price": 1000000,  "quantity":5},
+
+  { "id": 2, "category":"print", "name": "Bulbasaur 5x7", "img_url":"/productImages/5x7/Bulbasaur.webp", "price": 1000 },
+  { "id": 3, "category":"print", "name": "Casio 5x7", "img_url":"/productImages/5x7/Casio.webp", "price": 1000 },
+  { "id": 4, "category":"print", "name": "Charmander 5x7", "img_url":"/productImages/5x7/Charmander.webp", "price": 1000 },
+  { "id": 5, "category":"print", "name": "KitMouse 5x7", "img_url":"/productImages/5x7/KitMouse.webp", "price": 1000 },
+  { "id": 6, "category":"print", "name": "Knuckles 5x7", "img_url":"/productImages/5x7/Knuckles.webp", "price": 1000 },
+  { "id": 7, "category":"print", "name": "Mew 5x7", "img_url":"/productImages/5x7/Mew.webp", "price": 1000 },
+  { "id": 8, "category":"print", "name": "Sonic 5x7", "img_url":"/productImages/5x7/Sonic.webp", "price": 1000 },
+  { "id": 9, "category":"print", "name": "Tails 5x7", "img_url":"/productImages/5x7/Tails.webp", "price": 1000 },
+
+  { "id": 10, "category":"print", "name": "Colorado 10x10", "img_url":"/productImages/10x10/Colorado.webp", "price": 2500 },
+  { "id": 11, "category":"print", "name": "Kansas 10x10", "img_url":"/productImages/10x10/Kansas.webp","price": 2500 },
+
+  { "id": 12, "category":"print", "name": "CountryCat 8x10", "img_url":"/productImages/8x10/CountryCat.webp", "price": 2000 },
+
+  { "id": 13, "category":"sticker", "name": "Black and White Warbler Sticker", "img_url":"/productImages/stickers/BnWWarbler.png", "price": 300 },
+  { "id": 14, "category":"sticker", "name": "Brown Thrasher Sticker", "img_url":"/productImages/stickers/BThrasher.png", "price": 300 },
+  { "id": 15, "category":"sticker", "name": "Calico Country Sticker", "img_url":"/productImages/stickers/CalicoCountry.png", "price": 500 },
+  { "id": 16, "category":"sticker", "name": "KitMouse Pose One Sticker", "img_url":"/productImages/stickers/KitMousePose1.png", "price": 500 },
+  { "id": 17, "category":"sticker", "name": "Meown'n Sticker", "img_url":"/productImages/stickers/Meown'n.png", "price": 500 },
+  { "id": 18, "category":"sticker", "name": "Northern BobWhite Sticker", "img_url":"/productImages/stickers/NBobwhite.png", "price": 300 }
 ]

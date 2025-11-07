@@ -6,6 +6,8 @@ const stripe = require('stripe');
 //const bcrypt = require('bcrypt');
 const session = require('express-session');
 const products = require('./productImages.json');
+const categories = [...new Set(products.map(item => item.category))].sort();
+
 const images = require('./siteImages.json');
 const path = require('path');
 //const sqrl = require('squirrelly');
@@ -116,7 +118,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {categories:categories});
 });
 // // Get user profile
 // app.get('/api/profile', (req, res) => {
@@ -147,6 +149,15 @@ app.get("/api/product/:id", (req, res) => {
   res.json(product);
 });
 
+app.get('/api/products/:category', (req, res) => {
+  //do pagination if products greater than 100.
+  //default to showing 50 products per page.
+  const productId = req.params.category;
+  console.log(req.params.category)
+  const product = products.find((i) => i.category == productId)
+
+  res.json(products);
+});
 // // Endpoint to create a Stripe Checkout session
 // app.post('/api/create-checkout-session', async (req, res) => {
 //   const { productId } = req.body;
@@ -248,10 +259,13 @@ app.get('/success', (req,res) => {
 app.get('/cancel', (req,res) => {
   res.render('cancel');
 });
+app.get('/about', (req, res) => {
+  res.render('about');
+})
 
-app.get('/contact', (req, res) => {
-  res.render('contact');
-});
+// app.get('/contact', (req, res) => {
+//   res.render('contact');
+// });
 
 app.get('/catalog', (req, res) => {
   res.render('catalog');

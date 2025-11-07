@@ -22,8 +22,21 @@
     <h2 style="font-weight: lighter; letter-spacing: 10px;">
       Available Products
     </h2>
-
-    <div id="products" class="mt-4 flx(wrap) space-evenly middle"></div>
+    <div>
+      <label>Categories:</label>
+      <select  onchange="changeCategories()"class="category-select">
+        <option>--</option>
+        {{@each(it.categories) => category}}
+          {{@if(category == 'print'_}}
+          <option value="{{category}}" selected>{{category}}</option>
+          {{_#else_}}
+          <option value="{{category}}">{{category}}</option>
+          {{_/if}}
+        {{/each}}
+      </select>
+    </div>
+    
+    <div id="products" class="mt-4"></div>
     <script src="js/products.js"></script>
 {{@includeFile('footer.squirrelly') /}}
 
