@@ -19,12 +19,12 @@
       </div>
     </div> -->
 
-    <h2 style="font-weight: lighter; letter-spacing: 10px;">
+    <h2 style="font-weight: 200; letter-spacing: 10px;">
       Available Products
     </h2>
     <div>
-      <label>Categories:</label>
-      <select  onchange="changeCategories()"class="category-select">
+      <label class="ml-4">Categories:</label>
+      <select style="padding: .2rem;"  onchange="changeCategories()"class="category-select">
         <option>--</option>
         {{@each(it.categories) => category}}
           {{@if(category == 'print'_}}

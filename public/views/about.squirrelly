@@ -1,7 +1,10 @@
 {{@includeFile('header.squirrelly') /}}
-<h2>About Sarawr Art</h2>
-<div class="flx(wrap) center middle">
-	<p style="max-width:500px;">
+<h2 style="font-weight:400;">About Sarawr Art</h2>
+<div class="flx(column) center middle">
+	<figure class="profile-pic">
+		<img src="/siteImages/selfPortraitSarawr.png" />
+	</figure>
+	<p style="max-width:500px;  text-align:justify;">
 		Hello! My name is Sara Weatherman and I am a pet portrait artist and digital Illustrator based in Wichita Kansas. Shape and color are my passions and I enjoy creating work that tells the unique story of your furry, scaly, or feathery friends. I love working and collaborating with others on making ideas come to life and seeing how far that first sketch can go. I really like birbs, send me birbs i drool on birbs
 	</p>
 </div>

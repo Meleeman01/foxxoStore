@@ -662,7 +662,10 @@ ul {
     .arrow.right {
       right: 10px;
     }
-
+  .hidden {
+    display: none;
+    visibility: hidden;
+  }
 /*mobile styles*/
 @media (max-width: 600px) {
   .card {
