@@ -15,7 +15,8 @@
     "express-session": "^1.18.1",
     "mflx": "^2.0.1",
     "squirrelly": "^9.1.0",
-    "stripe": "^17.7.0"
+    "stripe": "^17.7.0",
+    "toastify": "^2.0.1"
   },
   "devDependencies": {
     "@eslint/css": "^0.12.0",

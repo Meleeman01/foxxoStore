@@ -53,6 +53,7 @@
      
      
   </script>
+  <script src="/js/toastify.js"></script>
   <script src="/js/cart.js"></script>
 </body>
 </html>

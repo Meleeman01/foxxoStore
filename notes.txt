@@ -1,2 +1,6 @@
 // add pictures 
-// 
+// add toast message when cart item added
+//fix mobile issues
+//tap on photo on view product to make biggerr
+//check for consistency on different browsers
+//fix buy now button
