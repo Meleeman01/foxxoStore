@@ -4,7 +4,9 @@
   "description": "for all things meleeman",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-client-deps": "node copyfile.js toastify/dist/build.js public/js/toastify.js",
+    "watch": "node server.js --watch-path --watch-preserve-output ./public"
   },
   "author": "Meleeman",
   "license": "MIT",
