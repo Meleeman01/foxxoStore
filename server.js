@@ -16,7 +16,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-const stripeSecretKey = process.env.TEST_SECRET_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripeInstance = stripe(stripeSecretKey);
 
 
@@ -241,8 +241,8 @@ app.post("/create-checkout-session", async (req, res) => {
         },
       ],
       //this will need to be put into an .env
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: `https://sarawrart.vfpmedia.com/success`,
+      cancel_url: "https://sarawrart.vfpmedia.com/cancel",
     });
 
     res.json({ url: session.url });

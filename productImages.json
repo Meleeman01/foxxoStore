@@ -16,6 +16,7 @@
 
   { "id": 13, "category":"print", "name": "CountryCat 8x10", "img_url":"/productImages/8x10/CountryCat.webp", "price": 2000 },
 
+<<<<<<< Updated upstream
   { "id": 14, "category":"sticker", "name": "Black and White Warbler Sticker", "img_url":"/productImages/stickers/BnWWarbler.png", "price": 300 },
   { "id": 15, "category":"sticker", "name": "Brown Thrasher Sticker", "img_url":"/productImages/stickers/BThrasher.png", "price": 300 },
   { "id": 16, "category":"sticker", "name": "Calico Country Sticker", "img_url":"/productImages/stickers/CalicoCountry.png", "price": 500 },
@@ -29,3 +30,18 @@
   { "id": 23, "category":"inperson", "name": "15 dollar item", "price": 1500},
   { "id": 24, "category":"inperson", "name": "25 dollar item", "price": 2500}
 ]
+=======
+  { "id": 13, "category":"sticker", "name": "Black and White Warbler Sticker", "img_url":"/productImages/stickers/BnWWarbler.png", "price": 300 },
+  { "id": 14, "category":"sticker", "name": "Brown Thrasher Sticker", "img_url":"/productImages/stickers/BThrasher.png", "price": 300 },
+  { "id": 15, "category":"sticker", "name": "Calico Country Sticker", "img_url":"/productImages/stickers/CalicoCountry.png", "price": 500 },
+  { "id": 16, "category":"sticker", "name": "KitMouse Pose One Sticker", "img_url":"/productImages/stickers/KitMousePose1.png", "price": 500 },
+  { "id": 17, "category":"sticker", "name": "Meown'n Sticker", "img_url":"/productImages/stickers/Meown'n.png", "price": 500 },
+  { "id": 18, "category":"sticker", "name": "Northern BobWhite Sticker", "img_url":"/productImages/stickers/NBobwhite.png", "price": 300 },
+
+  { "id": 19, "category":"inperson", "name": "3 dollar item", "price": 300 },
+  { "id": 20, "category":"inperson", "name": "5 dollar item", "price": 500},
+  { "id": 21, "category":"inperson", "name": "10 dollar item", "price": 1000},
+  { "id": 22, "category":"inperson", "name": "15 dollar item", "price": 1500},
+  { "id": 23, "category":"inperson", "name": "25 dollar item", "price": 2500}
+]
+>>>>>>> Stashed changes
