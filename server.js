@@ -279,7 +279,7 @@ app.use( ( req, res, next ) => {
 });
 // Start the server
 app.listen(port, () => {
-  console.log(`E-commerce app listehow to check npm global packagesning at http://localhost:${port}`);
+  console.log(`E-commerce app listening at http://localhost:${port}`);
 });
 
 // Example directory structure:

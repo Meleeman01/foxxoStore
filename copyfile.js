@@ -50,14 +50,14 @@ async function main() {
     //file doesn't exist but keep going lol
     await fs.rename(path.join(path.dirname(dest),path.basename(modulePath)),path.join(path.dirname(destPath),path.basename(destPath)))
     //specific code for toastify.js rename. might be brittle since it just removes the export lines
-    await trimLastLines(path.resolve(destPath))
+    //await trimLastLines(path.resolve(destPath))
   }
   else if (path.basename(destPath) !== path.basename(modulePath) && getStats.isFile()) {
     await fs.mkdir(path.resolve(path.dirname(destPath)), { recursive: true });
     await fs.copyFile(src, path.join(path.dirname(dest),path.basename(modulePath)));
     await fs.rename(path.resolve(dest),path.join(path.dirname(destPath),path.basename(destPath)))
     //specific code for toastify.js rename. might be brittle since it just removes the export lines
-    await trimLastLines(path.resolve(destPath))
+    //await trimLastLines(path.resolve(destPath))
   }
   else {
     await fs.mkdir(path.resolve(path.dirname(destPath)), { recursive: true });

@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="mflx.css">
-  <title>E-Commerce App</title>
+  <title>Sarawr ArtStore</title>
   <style>
     body {
       margin: 0;
@@ -41,22 +41,8 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    .card {
-      background: #F1EDFF0f;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      width: 90%;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    .card-title {
-      font-size: 1.25em;
-      margin: 10px 0;
-    }
-    .card-text {
-      color: #555;
-    }
+    
+    
     .btn-primary {
       background-color: #6A78FF;
       color: white;
@@ -65,6 +51,8 @@
       border-radius: 4px;
       cursor: pointer;
       width: 100%;
+      font-size: 1rem;
+      font-weight: 700;
     }
     .btn-primary:hover {
       background-color: #6A78FF
@@ -115,17 +103,14 @@
       right: 10px;
     }
 
-    .link-style {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
+
     #products {
-  display: grid;
-  gap: 1.5rem;
-  padding: 1rem;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-}
+      display: grid;
+      gap: 1.5rem;
+      padding: 1rem;
+      justify-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
   
   .checkout {
     transition: top 0.3s ease-in-out;
