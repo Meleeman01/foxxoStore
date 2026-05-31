@@ -1,7 +1,7 @@
 // Utility to get and save cart in localStorage
 let Toast = new Toastify();
 Toast.setOption('delay', 3000);
-Toast.setOption('position', 'top-right');
+Toast.setOption('position', 'top-center');
     function getCart() {
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
       let cartIndicator = document.querySelector('#cartItemCount');

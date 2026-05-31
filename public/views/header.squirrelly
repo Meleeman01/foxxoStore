@@ -168,7 +168,7 @@
     </div>
     <div class="links flx(wrap) center space-around" style="position: sticky; top:0; background-color:#6A78FFD6; z-index: 1; box-shadow: 0 16px 32px rgba(0,0,0,0.1);">
       <a class="link link-style" href="/">Home</a>
-      <a class="link link-style" href="/about"> About Me </a>
+      <a class="link link-style" href="/about"> About </a>
       <a class="link link-style" href="/catalog"> Products</a>
       <a style="position:relative;" class="link link-style" href="/cart"> Cart<span id="cartItemCount"></span></a>
     </div>

@@ -1,11 +1,27 @@
 {{@includeFile('header.squirrelly') /}}
-<h2 style="font-weight:400;">About Sarawr Art</h2>
+<h2 style="font-weight:500;">About Sarawr Art</h2>
 <div class="flx(column) center middle">
 	<figure class="profile-pic">
 		<img src="/siteImages/selfPortraitSarawr.png" />
 	</figure>
-	<p style="max-width:500px;  text-align:justify;">
+	<p style="max-width:500px;  text-align:justify;" class="mb-5">
 		Hello! My name is Sara Weatherman and I am a pet portrait artist and digital Illustrator based in Wichita Kansas. Shape and color are my passions and I enjoy creating work that tells the unique story of your furry, scaly, or feathery friends. I love working and collaborating with others on making ideas come to life and seeing how far that first sketch can go. I really like birbs, send me birbs i drool on birbs
 	</p>
+	<span style="font-weight:600;">Contact Me:</span>
+	<div class="flx(wrap) middle space-around mb-5">
+		
+		<a href="mailto:weathermansara@gmail.com" class="flx middle center1">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="#6A78FF">
+			<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/>
+		</svg>
+		</a>
+		<a href="https://www.instagram.com/sarawr_art/" class="flx middle center">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="#6A78FF">
+			<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+		</svg>
+
+		</a>
+		
+	</div>
 </div>
 {{@includeFile('footer.squirrelly') /}}

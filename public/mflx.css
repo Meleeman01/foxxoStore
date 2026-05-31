@@ -687,7 +687,8 @@ ul {
     left: 15px; }
     .toastify.toastify-top-center {
     top: 15px;
-    left: 50%; }
+    left: 50%; 
+    transform: translateX(50%);} /*set to a value that works for Sarawrart*/
   .toastify.toastify-bottom-left {
     bottom: 15px;
     left: 15px; }

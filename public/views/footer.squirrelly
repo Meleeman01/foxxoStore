@@ -1,5 +1,5 @@
     <!--Footer-->
-    <figure class="flx center middle">
+    <figure class="flx center middle hidden">
       <img style="max-width: 125px; min-width: 0;" src="siteImages/sarawr.png"/>
     </figure>
     <footer class="flx(column) center middle" style="padding: 0;
