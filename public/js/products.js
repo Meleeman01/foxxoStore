@@ -5,7 +5,6 @@ async function fetchProducts(category = undefined) {
       const response = await fetch('/api/products');
       const products = await response.json();
       let productsFiltered = 0;
-      console.log(categories);
       const productsContainer = document.getElementById('products');
       productsContainer.innerHTML = '';
       //first check if any categories are specified
@@ -20,7 +19,6 @@ async function fetchProducts(category = undefined) {
 
         productCard.addEventListener('click', (event) => {
           if (event.target.classList.contains('clickable')) {
-            console.log('child clicked',event.target);
             window.location = `${window.origin}/product?id=${product.id}`
           }
           event.stopPropagation();
@@ -43,13 +41,11 @@ async function fetchProducts(category = undefined) {
     }
 function changeCategories() {
   const category = document.querySelector('.category-select').value;
-  console.log('fired:',category);
   if(categories.indexOf(category) != -1) {
     fetchProducts(category)
   }
 }
 if (window.location.pathname === '/catalog') {
-  console.log(window.location.pathname)
   fetchProducts()
 }
 else fetchProducts('print')

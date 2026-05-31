@@ -344,3 +344,6 @@ var Toastify = function () {
     return Toastify;
 }();
 var index = new Toastify();
+
+export { Toastify };
+export default index;

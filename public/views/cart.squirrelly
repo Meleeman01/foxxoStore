@@ -1,9 +1,5 @@
 {{@includeFile('header.squirrelly') /}}
 	<!--view cart here-->
-	<style> .card {
-			width: calc(38% - 20px)!important;
-		}
-	</style>
 	<h1>Your Cart</h1>
 	<div class="flx top space-between">
 		<div class="cart flx(wrap) space-evenly middle is-10"></div>

@@ -33,7 +33,7 @@
     function updateSlide() {
       slides.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    //document.querySelector('')
+
 
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + slideCount) % slideCount;
